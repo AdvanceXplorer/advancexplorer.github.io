@@ -9,9 +9,11 @@
   --accent-2: #9b5f2e;
   --shadow: 0 18px 48px rgba(28, 31, 36, 0.08);
   --max: 1080px;
+  color-scheme: light;
 }
 
 [data-theme="dark"] {
+  color-scheme: dark;
   --bg: #101114;
   --surface: #181a1f;
   --surface-soft: #20242b;
@@ -21,6 +23,40 @@
   --accent: #8ed8f1;
   --accent-2: #f0b875;
   --shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+}
+
+
+/* Smooth theme morphing. The class is added only while the Light/Dark button is clicked. */
+html.theme-changing,
+html.theme-changing body,
+html.theme-changing header,
+html.theme-changing main,
+html.theme-changing section,
+html.theme-changing article,
+html.theme-changing a,
+html.theme-changing button,
+html.theme-changing input,
+html.theme-changing .card,
+html.theme-changing .button,
+html.theme-changing .callout,
+html.theme-changing .site-header,
+html.theme-changing .site-footer,
+html.theme-changing .list article,
+html.theme-changing .timeline article {
+  transition:
+    background-color 750ms ease,
+    background 750ms ease,
+    color 750ms ease,
+    border-color 750ms ease,
+    box-shadow 750ms ease,
+    opacity 750ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-changing,
+  html.theme-changing * {
+    transition: none !important;
+  }
 }
 
 * { box-sizing: border-box; }
@@ -71,16 +107,40 @@ a { color: inherit; }
 }
 
 .theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   border: 1px solid var(--line);
   background: var(--surface);
   color: var(--text);
   border-radius: 999px;
-  padding: 7px 11px;
+  padding: 7px 12px 7px 9px;
   font-size: 0.82rem;
+  font-weight: 750;
   cursor: pointer;
+  box-shadow: 0 8px 22px rgba(28, 31, 36, 0.06);
 }
 
-.theme-toggle:hover { border-color: var(--accent); }
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.theme-icon {
+  width: 22px;
+  height: 22px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  background: var(--surface-soft);
+  color: var(--accent);
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.theme-label {
+  line-height: 1;
+}
 
 .nav {
   display: flex;
