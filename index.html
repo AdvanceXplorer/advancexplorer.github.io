@@ -3,13 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Akan Selim — stochastic optimal control, distribution steering, uncertainty propagation, autonomous aerospace systems, and motion-designed interactive research demos." />
-  <title>Akan Selim | Dynamics of Uncertainty</title>
+
+  <meta
+    name="description"
+    content="Akan Selim — stochastic optimal control, distribution steering, uncertainty propagation, autonomous aerospace systems, sparse nonlinear programming, and motion-designed interactive research demos."
+  />
+
+  <title>Akan Selim | Nothing is dense, everything is sparse, and uncertain.</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <div class="noise"></div>
   <canvas id="heroCanvas" aria-hidden="true"></canvas>
@@ -19,6 +30,7 @@
       <span class="brand-mark">AS</span>
       <span class="brand-text">Akan Selim</span>
     </a>
+
     <nav class="nav" aria-label="Primary navigation">
       <a href="#research">Research</a>
       <a href="#lab">Interactive Lab</a>
@@ -32,20 +44,40 @@
     <section class="hero section-pad">
       <div class="hero-grid">
         <div class="hero-copy" data-reveal>
-          <p class="eyebrow">Stochastic Control · Aerospace Autonomy · Motion Design</p>
-          <h1>I design algorithms that move uncertainty.</h1>
+          <p class="eyebrow">Akan Selim · Stochastic Control · Aerospace Autonomy · Motion Design</p>
+
+          <h1>
+            Nothing is dense,<br>
+            everything is sparse,<br>
+            and uncertain.
+          </h1>
+
           <p class="hero-subtitle">
             Aerospace PhD researcher at Georgia Tech working on stochastic optimal control,
-            distribution steering, uncertainty propagation, and autonomous aerospace systems.
+            distribution steering, uncertainty propagation, sparse nonlinear programming,
+            and autonomous aerospace systems.
           </p>
+
           <div class="hero-actions">
             <a class="button primary" href="#lab">Open interactive lab</a>
-            <a class="button ghost" href="assets/Akan_Selim_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+            <a class="button ghost" href="assets/Akan_Selim_CV.pdf" target="_blank" rel="noopener">
+              Download CV
+            </a>
           </div>
+
           <div class="metric-row" aria-label="Research summary">
-            <div><strong>4.0</strong><span>Georgia Tech GPA</span></div>
-            <div><strong>2024–2029</strong><span>AE PhD</span></div>
-            <div><strong>GN&amp;C</strong><span>Former senior engineer</span></div>
+            <div>
+              <strong>4.0</strong>
+              <span>Georgia Tech GPA</span>
+            </div>
+            <div>
+              <strong>2024–2029</strong>
+              <span>AE PhD</span>
+            </div>
+            <div>
+              <strong>GN&amp;C</strong>
+              <span>Former senior engineer</span>
+            </div>
           </div>
         </div>
 
@@ -54,7 +86,13 @@
             <span class="status-dot"></span>
             live system sketch
           </div>
-          <canvas id="phaseCanvas" class="panel-canvas" aria-label="Animated phase portrait"></canvas>
+
+          <canvas
+            id="phaseCanvas"
+            class="panel-canvas"
+            aria-label="Animated phase portrait"
+          ></canvas>
+
           <div class="equation-card">
             <span>controlled stochastic dynamics</span>
             <code>dx = f(x,t)dt + B(x,t)u dt + σ(x,t)dW</code>
@@ -66,12 +104,13 @@
     <section class="manifesto section-pad" data-reveal>
       <div class="section-heading compact">
         <p class="eyebrow">Research identity</p>
-        <h2>Motion design for mathematical systems.</h2>
+        <h2>Motion design for sparse, uncertain, mathematical systems.</h2>
       </div>
+
       <p class="wide-text">
         My website is a research instrument: each visual is meant to expose a control-theoretic idea.
-        Density flow, uncertainty tubes, covariance morphing, and corrective guidance should be seen,
-        perturbed, and understood — not only listed as papers.
+        Density flow, uncertainty tubes, covariance morphing, sparse structure, and corrective guidance
+        should be seen, perturbed, and understood — not only listed as papers.
       </p>
     </section>
 
@@ -90,14 +129,16 @@
             free-final-time transversality, and measure-valued dynamics.
           </p>
         </article>
+
         <article class="research-card" data-reveal>
           <div class="card-orbit alt"></div>
           <h3>Uncertainty Propagation</h3>
           <p>
-            Perron–Frobenius/Koopman viewpoints, Gaussian mixtures, PCE, unscented transforms,
-            and high-dimensional approximation for nonlinear aerospace systems.
+            Perron–Frobenius/Koopman viewpoints, Gaussian mixtures, polynomial chaos expansions,
+            unscented transforms, and high-dimensional approximation for nonlinear aerospace systems.
           </p>
         </article>
+
         <article class="research-card" data-reveal>
           <div class="card-orbit warm"></div>
           <h3>Autonomous Guidance</h3>
@@ -106,6 +147,7 @@
             and corrective guidance under uncertainty.
           </p>
         </article>
+
         <article class="research-card" data-reveal>
           <div class="card-orbit field"></div>
           <h3>Learning Dynamics</h3>
@@ -129,10 +171,18 @@
 
       <div class="lab-shell" data-reveal>
         <div class="lab-tabs" role="tablist" aria-label="Interactive demos">
-          <button class="tab-button active" data-demo="covariance" role="tab">Covariance steering</button>
-          <button class="tab-button" data-demo="density" role="tab">Density flow</button>
-          <button class="tab-button" data-demo="orbit" role="tab">Orbital uncertainty</button>
-          <button class="tab-button" data-demo="correction" role="tab">Midcourse correction</button>
+          <button class="tab-button active" data-demo="covariance" role="tab">
+            Covariance steering
+          </button>
+          <button class="tab-button" data-demo="density" role="tab">
+            Density flow
+          </button>
+          <button class="tab-button" data-demo="orbit" role="tab">
+            Orbital uncertainty
+          </button>
+          <button class="tab-button" data-demo="correction" role="tab">
+            Midcourse correction
+          </button>
         </div>
 
         <div class="demo-panel active" id="demo-covariance">
@@ -142,13 +192,33 @@
               Particles are guided from a dispersed initial cloud toward a desired terminal covariance.
               Increase control strength to contract uncertainty faster; increase diffusion to perturb the flow.
             </p>
+
             <div class="controls">
-              <label>Control strength <input id="covGain" type="range" min="0" max="1.5" value="0.65" step="0.01"><span id="covGainVal"></span></label>
-              <label>Diffusion <input id="covNoise" type="range" min="0" max="1" value="0.18" step="0.01"><span id="covNoiseVal"></span></label>
-              <label>Target spread <input id="covTarget" type="range" min="20" max="110" value="52" step="1"><span id="covTargetVal"></span></label>
+              <label>
+                Control strength
+                <input id="covGain" type="range" min="0" max="1.5" value="0.65" step="0.01">
+                <span id="covGainVal"></span>
+              </label>
+
+              <label>
+                Diffusion
+                <input id="covNoise" type="range" min="0" max="1" value="0.18" step="0.01">
+                <span id="covNoiseVal"></span>
+              </label>
+
+              <label>
+                Target spread
+                <input id="covTarget" type="range" min="20" max="110" value="52" step="1">
+                <span id="covTargetVal"></span>
+              </label>
             </div>
           </div>
-          <canvas id="covCanvas" class="demo-canvas" aria-label="Covariance steering particle simulation"></canvas>
+
+          <canvas
+            id="covCanvas"
+            class="demo-canvas"
+            aria-label="Covariance steering particle simulation"
+          ></canvas>
         </div>
 
         <div class="demo-panel" id="demo-density">
@@ -158,13 +228,33 @@
               A particle density moves through a nonlinear vector field. The potential strength bends the flow;
               diffusion controls the amount of stochastic spreading.
             </p>
+
             <div class="controls">
-              <label>Potential strength <input id="denPotential" type="range" min="0" max="1.4" value="0.55" step="0.01"><span id="denPotentialVal"></span></label>
-              <label>Diffusion <input id="denNoise" type="range" min="0" max="1" value="0.25" step="0.01"><span id="denNoiseVal"></span></label>
-              <label>Rotation <input id="denCurl" type="range" min="0" max="1.4" value="0.65" step="0.01"><span id="denCurlVal"></span></label>
+              <label>
+                Potential strength
+                <input id="denPotential" type="range" min="0" max="1.4" value="0.55" step="0.01">
+                <span id="denPotentialVal"></span>
+              </label>
+
+              <label>
+                Diffusion
+                <input id="denNoise" type="range" min="0" max="1" value="0.25" step="0.01">
+                <span id="denNoiseVal"></span>
+              </label>
+
+              <label>
+                Rotation
+                <input id="denCurl" type="range" min="0" max="1.4" value="0.65" step="0.01">
+                <span id="denCurlVal"></span>
+              </label>
             </div>
           </div>
-          <canvas id="denCanvas" class="demo-canvas" aria-label="Density flow particle simulation"></canvas>
+
+          <canvas
+            id="denCanvas"
+            class="demo-canvas"
+            aria-label="Density flow particle simulation"
+          ></canvas>
         </div>
 
         <div class="demo-panel" id="demo-orbit">
@@ -174,13 +264,33 @@
               A cloud of nearby orbital states propagates around a nominal orbit. Perturbation strength stretches
               the cloud, showing how uncertainty grows along the trajectory.
             </p>
+
             <div class="controls">
-              <label>Initial dispersion <input id="orbDisp" type="range" min="4" max="48" value="18" step="1"><span id="orbDispVal"></span></label>
-              <label>Perturbation <input id="orbPert" type="range" min="0" max="1" value="0.32" step="0.01"><span id="orbPertVal"></span></label>
-              <label>Correction gain <input id="orbGain" type="range" min="0" max="1" value="0.18" step="0.01"><span id="orbGainVal"></span></label>
+              <label>
+                Initial dispersion
+                <input id="orbDisp" type="range" min="4" max="48" value="18" step="1">
+                <span id="orbDispVal"></span>
+              </label>
+
+              <label>
+                Perturbation
+                <input id="orbPert" type="range" min="0" max="1" value="0.32" step="0.01">
+                <span id="orbPertVal"></span>
+              </label>
+
+              <label>
+                Correction gain
+                <input id="orbGain" type="range" min="0" max="1" value="0.18" step="0.01">
+                <span id="orbGainVal"></span>
+              </label>
             </div>
           </div>
-          <canvas id="orbCanvas" class="demo-canvas" aria-label="Orbital uncertainty simulation"></canvas>
+
+          <canvas
+            id="orbCanvas"
+            class="demo-canvas"
+            aria-label="Orbital uncertainty simulation"
+          ></canvas>
         </div>
 
         <div class="demo-panel" id="demo-correction">
@@ -190,13 +300,33 @@
               Compare an uncertain trajectory against a corrected one. Higher correction gain pulls the trajectory
               into the terminal gate, but saturation limits the achievable response.
             </p>
+
             <div class="controls">
-              <label>Initial error <input id="midErr" type="range" min="0" max="1" value="0.55" step="0.01"><span id="midErrVal"></span></label>
-              <label>Correction gain <input id="midGain" type="range" min="0" max="1.5" value="0.7" step="0.01"><span id="midGainVal"></span></label>
-              <label>Model uncertainty <input id="midUnc" type="range" min="0" max="1" value="0.28" step="0.01"><span id="midUncVal"></span></label>
+              <label>
+                Initial error
+                <input id="midErr" type="range" min="0" max="1" value="0.55" step="0.01">
+                <span id="midErrVal"></span>
+              </label>
+
+              <label>
+                Correction gain
+                <input id="midGain" type="range" min="0" max="1.5" value="0.7" step="0.01">
+                <span id="midGainVal"></span>
+              </label>
+
+              <label>
+                Model uncertainty
+                <input id="midUnc" type="range" min="0" max="1" value="0.28" step="0.01">
+                <span id="midUncVal"></span>
+              </label>
             </div>
           </div>
-          <canvas id="midCanvas" class="demo-canvas" aria-label="Robust midcourse correction simulation"></canvas>
+
+          <canvas
+            id="midCanvas"
+            class="demo-canvas"
+            aria-label="Robust midcourse correction simulation"
+          ></canvas>
         </div>
       </div>
     </section>
@@ -206,36 +336,59 @@
         <p class="eyebrow">Selected publications & manuscripts</p>
         <h2>Research portfolio.</h2>
       </div>
+
       <div class="publication-list" data-reveal>
         <article>
           <span>2026</span>
           <h3>Continuous-Time Covariance Steering with Common Free-Final Time</h3>
-          <p>Theory for turnpikes and optimal policies in varying small- and large-time horizon distribution steering problems.</p>
+          <p>
+            Theory for turnpikes and optimal policies in varying small- and large-time horizon
+            distribution steering problems.
+          </p>
         </article>
+
         <article>
           <span>2026</span>
           <h3>Nonlinear Stochastic Optimal Control and Optimal Stopping using Fokker–Planck Transformation</h3>
-          <p>Stochastic control, distribution steering, optimal stopping, common free-final-time transversality, and diffusion/score-based theory.</p>
+          <p>
+            Stochastic control, distribution steering, optimal stopping, common free-final-time transversality,
+            and diffusion/score-based theory.
+          </p>
         </article>
+
         <article>
           <span>2024</span>
           <h3>Stochastic Trajectory and Controller Optimization via Optimal Recovery Diffusion Control</h3>
-          <p>Diffusion-control viewpoint for stochastic recovery policies in Mars re-entry using sparse Gaussian-kernel score matching.</p>
+          <p>
+            Diffusion-control viewpoint for stochastic recovery policies in Mars re-entry using sparse
+            Gaussian-kernel score matching.
+          </p>
         </article>
+
         <article>
           <span>2024</span>
           <h3>Stochastic Trajectory and Robust Controller Optimization via Contractive Optimal Control</h3>
-          <p>Integrated guidance and control with control contraction metrics inside nonlinear programming.</p>
+          <p>
+            Integrated guidance and control with control contraction metrics inside nonlinear programming.
+          </p>
         </article>
+
         <article>
           <span>2023</span>
           <h3>Real-Time Optimal Control of a 6-DOF State-Constrained Close-Proximity Rendezvous Mission</h3>
-          <p>Ensemble optimal control, Bellman pseudospectral warm starts, DNN costate-policy learning, and robust replanning.</p>
+          <p>
+            Ensemble optimal control, Bellman pseudospectral warm starts, DNN costate-policy learning,
+            and robust replanning.
+          </p>
         </article>
+
         <article>
           <span>2023</span>
           <h3>Robust Trajectory Optimization of Re-entry Flight with Prescribed Endpoint Region</h3>
-          <p>Sparse-grid uncertainty propagation, ensemble pseudospectral optimization, endpoint-region constraints, and robust dispersion handling.</p>
+          <p>
+            Sparse-grid uncertainty propagation, ensemble pseudospectral optimization,
+            endpoint-region constraints, and robust dispersion handling.
+          </p>
         </article>
       </div>
     </section>
@@ -245,26 +398,38 @@
         <p class="eyebrow">Experience</p>
         <h2>From launch-vehicle GN&amp;C to stochastic autonomy research.</h2>
       </div>
+
       <div class="timeline" data-reveal>
         <article>
           <div class="time">Summer 2026</div>
           <div class="timeline-content">
             <h3>FieldAI · Research Intern, Data-Driven Dynamics / VLA and Large Behavior Models</h3>
-            <p>Rollout analysis, capability/failure-mode evaluation, robust validation, sparse/optimization-based interpretability, and dynamics learning for autonomy.</p>
+            <p>
+              Rollout analysis, capability/failure-mode evaluation, robust validation,
+              sparse/optimization-based interpretability, and dynamics learning for autonomy.
+            </p>
           </div>
         </article>
+
         <article>
           <div class="time">2024–Present</div>
           <div class="timeline-content">
             <h3>Georgia Institute of Technology · Graduate Research Assistant</h3>
-            <p>Stochastic optimal control, covariance/distribution steering, optimal stopping, Fokker–Planck transformations, nonlinear optimal transport, and robotics autonomy.</p>
+            <p>
+              Stochastic optimal control, covariance/distribution steering, optimal stopping,
+              Fokker–Planck transformations, nonlinear optimal transport, and robotics autonomy.
+            </p>
           </div>
         </article>
+
         <article>
           <div class="time">2021–2024</div>
           <div class="timeline-content">
             <h3>ROKETSAN · Senior Guidance, Navigation &amp; Control Engineer</h3>
-            <p>Launch-vehicle trajectory/configuration design software, robust guidance/control, sparse nonlinear programming, Monte Carlo validation, and mission design.</p>
+            <p>
+              Launch-vehicle trajectory/configuration design software, robust guidance/control,
+              sparse nonlinear programming, Monte Carlo validation, and mission design.
+            </p>
           </div>
         </article>
       </div>
@@ -280,13 +445,16 @@
             experience, and selected publications/manuscripts.
           </p>
         </div>
-        <a class="button primary" href="assets/Akan_Selim_CV.pdf" target="_blank" rel="noopener">Open CV PDF</a>
+
+        <a class="button primary" href="assets/Akan_Selim_CV.pdf" target="_blank" rel="noopener">
+          Open CV PDF
+        </a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© <span id="year"></span> Akan Selim · Dynamics of Uncertainty</p>
+    <p>© <span id="year"></span> Akan Selim · Nothing is dense, everything is sparse, and uncertain.</p>
     <p><a href="mailto:aselim8@gatech.edu">aselim8@gatech.edu</a></p>
   </footer>
 
