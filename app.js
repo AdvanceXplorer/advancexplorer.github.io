@@ -24,60 +24,68 @@ function randn() {
 
 
 
-function getThemePalette() {
-  const light = document.documentElement.dataset.theme === "light";
-  if (light) {
-    return {
-      grid: "rgba(15,23,42,0.09)",
-      gridSoft: "rgba(15,23,42,0.055)",
-      label: "rgba(15,23,42,0.72)",
-      labelSoft: "rgba(15,23,42,0.58)",
-      cyan: "rgba(14,165,233,0.78)",
-      cyanSoft: "rgba(14,165,233,0.44)",
-      cyanStrong: "rgba(2,132,199,0.95)",
-      cyanParticle: "rgba(14,165,233,0.62)",
-      cyanTrace: "rgba(14,165,233,0.24)",
-      amber: "rgba(245,158,11,0.82)",
-      amberStroke: "rgba(245,158,11,0.72)",
-      amberFill: "rgba(245,158,11,0.10)",
-      amberGlow: "rgba(245,158,11,0.35)",
-      green: "rgba(16,185,129,0.95)",
-      greenStroke: "rgba(16,185,129,0.72)",
-      greenGate: "rgba(16,185,129,0.65)",
-      greenFill: "rgba(16,185,129,0.10)",
-      greenGateFill: "rgba(16,185,129,0.14)",
-      pinkPath: "rgba(219,39,119,0.52)",
-      densityFade: "rgba(248,250,252,0.30)",
-      heroLine: "rgba(14,165,233,",
-      heroAmber: "rgba(245,158,11,"
-    };
-  }
+let THEME_BLEND = document.documentElement.dataset.theme === "light" ? 1 : 0;
+let THEME_TARGET = THEME_BLEND;
 
+function mix(a, b, t) {
+  return a + (b - a) * t;
+}
+
+function rgbaMix(darkRgb, lightRgb, darkAlpha, lightAlpha = darkAlpha) {
+  const t = THEME_BLEND;
+  const r = Math.round(mix(darkRgb[0], lightRgb[0], t));
+  const g = Math.round(mix(darkRgb[1], lightRgb[1], t));
+  const b = Math.round(mix(darkRgb[2], lightRgb[2], t));
+  const a = mix(darkAlpha, lightAlpha, t).toFixed(3);
+  return `rgba(${r},${g},${b},${a})`;
+}
+
+function rgbaPrefixMix(darkRgb, lightRgb) {
+  const t = THEME_BLEND;
+  const r = Math.round(mix(darkRgb[0], lightRgb[0], t));
+  const g = Math.round(mix(darkRgb[1], lightRgb[1], t));
+  const b = Math.round(mix(darkRgb[2], lightRgb[2], t));
+  return `rgba(${r},${g},${b},`;
+}
+
+function startThemeBlendLoop() {
+  function tick() {
+    THEME_BLEND += (THEME_TARGET - THEME_BLEND) * 0.045;
+    if (Math.abs(THEME_TARGET - THEME_BLEND) < 0.001) {
+      THEME_BLEND = THEME_TARGET;
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+function getThemePalette() {
   return {
-    grid: "rgba(255,255,255,0.10)",
-    gridSoft: "rgba(255,255,255,0.055)",
-    label: "rgba(238,245,255,0.74)",
-    labelSoft: "rgba(159,176,199,0.74)",
-    cyan: "rgba(103,232,249,0.82)",
-    cyanSoft: "rgba(103,232,249,0.42)",
-    cyanStrong: "rgba(103,232,249,0.94)",
-    cyanParticle: "rgba(103,232,249,0.68)",
-    cyanTrace: "rgba(103,232,249,0.22)",
-    amber: "rgba(251,191,36,0.88)",
-    amberStroke: "rgba(251,191,36,0.78)",
-    amberFill: "rgba(251,191,36,0.11)",
-    amberGlow: "rgba(251,191,36,0.38)",
-    green: "rgba(52,211,153,0.95)",
-    greenStroke: "rgba(52,211,153,0.72)",
-    greenGate: "rgba(52,211,153,0.68)",
-    greenFill: "rgba(52,211,153,0.10)",
-    greenGateFill: "rgba(52,211,153,0.14)",
-    pinkPath: "rgba(244,114,182,0.58)",
-    densityFade: "rgba(2,6,23,0.30)",
-    heroLine: "rgba(115,221,255,",
-    heroAmber: "rgba(255,209,102,"
+    grid: rgbaMix([255, 255, 255], [15, 23, 42], 0.10, 0.09),
+    gridSoft: rgbaMix([255, 255, 255], [15, 23, 42], 0.055, 0.055),
+    label: rgbaMix([238, 245, 255], [15, 23, 42], 0.74, 0.72),
+    labelSoft: rgbaMix([159, 176, 199], [15, 23, 42], 0.74, 0.58),
+    cyan: rgbaMix([103, 232, 249], [14, 165, 233], 0.82, 0.78),
+    cyanSoft: rgbaMix([103, 232, 249], [14, 165, 233], 0.42, 0.44),
+    cyanStrong: rgbaMix([103, 232, 249], [2, 132, 199], 0.94, 0.95),
+    cyanParticle: rgbaMix([103, 232, 249], [14, 165, 233], 0.68, 0.62),
+    cyanTrace: rgbaMix([103, 232, 249], [14, 165, 233], 0.22, 0.24),
+    amber: rgbaMix([251, 191, 36], [245, 158, 11], 0.88, 0.82),
+    amberStroke: rgbaMix([251, 191, 36], [245, 158, 11], 0.78, 0.72),
+    amberFill: rgbaMix([251, 191, 36], [245, 158, 11], 0.11, 0.10),
+    amberGlow: rgbaMix([251, 191, 36], [245, 158, 11], 0.38, 0.35),
+    green: rgbaMix([52, 211, 153], [16, 185, 129], 0.95, 0.95),
+    greenStroke: rgbaMix([52, 211, 153], [16, 185, 129], 0.72, 0.72),
+    greenGate: rgbaMix([52, 211, 153], [16, 185, 129], 0.68, 0.65),
+    greenFill: rgbaMix([52, 211, 153], [16, 185, 129], 0.10, 0.10),
+    greenGateFill: rgbaMix([52, 211, 153], [16, 185, 129], 0.14, 0.14),
+    pinkPath: rgbaMix([244, 114, 182], [219, 39, 119], 0.58, 0.52),
+    densityFade: rgbaMix([2, 6, 23], [248, 250, 252], 0.30, 0.30),
+    heroLine: rgbaPrefixMix([115, 221, 255], [14, 165, 233]),
+    heroAmber: rgbaPrefixMix([255, 209, 102], [245, 158, 11])
   };
 }
+
 
 function initThemeToggle() {
   const root = document.documentElement;
@@ -86,17 +94,23 @@ function initThemeToggle() {
 
   function updateButton() {
     const isLight = root.dataset.theme === "light";
+    THEME_TARGET = isLight ? 1 : 0;
     button.querySelector(".theme-toggle-icon").textContent = isLight ? "☾" : "☀";
     button.querySelector(".theme-toggle-text").textContent = isLight ? "Dark" : "Light";
     button.setAttribute("aria-label", isLight ? "Switch to dark theme" : "Switch to light theme");
+    button.setAttribute("aria-pressed", String(isLight));
   }
 
   button.addEventListener("click", () => {
     const nextTheme = root.dataset.theme === "light" ? "dark" : "light";
+    root.classList.add("theme-changing");
     root.dataset.theme = nextTheme;
     localStorage.setItem("akan-theme", nextTheme);
     updateButton();
-    window.dispatchEvent(new Event("resize"));
+    window.clearTimeout(window.__akanThemeTimer);
+    window.__akanThemeTimer = window.setTimeout(() => {
+      root.classList.remove("theme-changing");
+    }, 1250);
   });
 
   updateButton();
@@ -496,6 +510,7 @@ function tabs() {
 
 window.addEventListener("load", () => {
   document.getElementById("year").textContent = new Date().getFullYear();
+  startThemeBlendLoop();
   initThemeToggle();
   revealOnScroll();
   heroBackground();
