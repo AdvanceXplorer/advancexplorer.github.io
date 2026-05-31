@@ -3,18 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Akan Selim - stochastic optimal control, distribution steering, astrodynamics, sparse nonlinear programming, and uncertainty-aware autonomy." />
-  <title>Akan Selim</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Akan Selim — stochastic optimal control, distribution steering, astrodynamics, sparse nonlinear programming, and uncertainty-aware autonomy." />
+  <title>Research | Akan Selim</title>
+  <link rel="stylesheet" href="styles.css?v=true-multipage-1" />
 </head>
 <body>
 <header class="site-header">
   <div class="brand-row">
     <a class="brand" href="index.html">Akan Selim</a>
-    <button class="theme-button" id="themeToggle" type="button">Dark</button>
+    <button class="theme-button" id="themeToggle" type="button" aria-label="Toggle color theme">Dark</button>
   </div>
   <nav class="nav" aria-label="Primary navigation">
     <a class="" href="index.html">Home</a>
@@ -29,44 +26,51 @@
   </nav>
 </header>
 
-<main>
-  <section class="page-title">
-    <p class="kicker">Akan Selim</p>
-    <h1>Research</h1>
-    <p class="lead">A compact map of my current research direction and the pages that organize it.</p>
+<main class="">
+
+  <section class="page-head">
+    <div>
+      <p class="kicker">Research overview</p>
+      <h1 class="page-title">Separate ideas deserve separate pages.</h1>
+      <p class="lead">This page is only a map. Each research direction has its own page with a focused summary.</p>
+    </div>
+    <aside class="page-note">The website is intentionally simple: no canvas effects, no long single-page scroll, and no overloaded AI-looking layout.</aside>
   </section>
-  <section class="content">
-    <div class="content-grid">
-      <article class="article-body">
-        
-<h2>Research overview</h2>
-<p>
-My work sits at the intersection of stochastic optimal control, distribution steering, nonlinear trajectory optimization,
-uncertainty propagation, and autonomy. I am especially interested in methods that control not only one trajectory,
-but the evolution of uncertainty around trajectories.
-</p>
-<h3>Core themes</h3>
-<ul>
-  <li><strong>Distribution steering:</strong> steering probability laws under controlled stochastic dynamics.</li>
-  <li><strong>Stochastic control:</strong> stochastic maximum principle, path-integral control, MPPI, and optimal stopping.</li>
-  <li><strong>Astrodynamics:</strong> spacecraft guidance, re-entry, rendezvous, launch-vehicle GN&amp;C, and uncertainty-aware mission design.</li>
-  <li><strong>Learning dynamics:</strong> Koopman/Perron-Frobenius approximations, data-driven dynamics, policy evaluation, and V&amp;V.</li>
-</ul>
-<h3>Design philosophy</h3>
-<p>
-My title, “Nothing is dense, everything is sparse, and uncertain,” reflects how I think about research: exploit sparse structure,
-respect uncertainty, and avoid pretending high-dimensional systems are simple dense objects.
-</p>
 
-      </article>
-      <aside class="sidebar">
-        
-<div class="panel"><strong>Topic pages</strong><p><a href="distribution-steering.html">Distribution steering</a></p><p><a href="stochastic-control.html">Stochastic optimal control</a></p><p><a href="astrodynamics.html">Astrodynamics</a></p><p><a href="learning-dynamics.html">Learning dynamics</a></p></div>
-<div class="panel"><strong>Documents</strong><p><a href="publications.html">Selected publications</a></p><p><a href="assets/Akan_Selim_CV.pdf" target="_blank" rel="noopener">Download CV</a></p></div>
+  <section class="grid-4">
+    <a class="topic-card" href="distribution-steering.html">
+      <h3>Distribution Steering</h3>
+      <p>Probability distributions, covariance steering, Fokker–Planck viewpoints, free-final-time steering.</p>
+      <span class="badge">Open page →</span>
+    </a>
+    <a class="topic-card" href="stochastic-control.html">
+      <h3>Stochastic Optimal Control</h3>
+      <p>Stochastic calculus, optimal stopping, path-integral control, MPPI, transversality.</p>
+      <span class="badge">Open page →</span>
+    </a>
+    <a class="topic-card" href="astrodynamics.html">
+      <h3>Astrodynamics</h3>
+      <p>Trajectory optimization, re-entry, rendezvous, launch vehicle GN&C, robust mission design.</p>
+      <span class="badge">Open page →</span>
+    </a>
+    <a class="topic-card" href="learning-dynamics.html">
+      <h3>Learning Dynamics</h3>
+      <p>Koopman/Perron–Frobenius models, VLA/LBM evaluation, policy failure modes, validation.</p>
+      <span class="badge">Open page →</span>
+    </a>
+  </section>
 
-      </aside>
+  <section class="section grid-2">
+    <div class="card">
+      <h3>Core theme</h3>
+      <p>My work studies how uncertainty evolves under dynamics and how control, optimization, and learning can shape that evolution.</p>
+    </div>
+    <div class="card">
+      <h3>Design principle</h3>
+      <p>The website should read like a compact research notebook: short pages, clear hierarchy, and room for future demos as separate pages.</p>
     </div>
   </section>
+
 </main>
 
 <footer class="footer">
@@ -74,6 +78,6 @@ respect uncertainty, and avoid pretending high-dimensional systems are simple de
   <div>Nothing is dense, everything is sparse, and uncertain.</div>
   <div><a href="mailto:aselim8@gatech.edu">aselim8@gatech.edu</a></div>
 </footer>
-<script src="theme.js"></script>
+<script src="theme.js?v=true-multipage-1"></script>
 </body>
 </html>

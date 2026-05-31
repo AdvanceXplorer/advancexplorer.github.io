@@ -3,18 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Akan Selim - stochastic optimal control, distribution steering, astrodynamics, sparse nonlinear programming, and uncertainty-aware autonomy." />
-  <title>Akan Selim</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Akan Selim — stochastic optimal control, distribution steering, astrodynamics, sparse nonlinear programming, and uncertainty-aware autonomy." />
+  <title>Learning Dynamics | Akan Selim</title>
+  <link rel="stylesheet" href="styles.css?v=true-multipage-1" />
 </head>
 <body>
 <header class="site-header">
   <div class="brand-row">
     <a class="brand" href="index.html">Akan Selim</a>
-    <button class="theme-button" id="themeToggle" type="button">Dark</button>
+    <button class="theme-button" id="themeToggle" type="button" aria-label="Toggle color theme">Dark</button>
   </div>
   <nav class="nav" aria-label="Primary navigation">
     <a class="" href="index.html">Home</a>
@@ -29,40 +26,28 @@
   </nav>
 </header>
 
-<main>
-  <section class="page-title">
-    <p class="kicker">Akan Selim</p>
-    <h1>Learning Dynamics</h1>
-    <p class="lead">Data-driven models, behavior-model evaluation, and robust validation for autonomy.</p>
-  </section>
-  <section class="content">
-    <div class="content-grid">
-      <article class="article-body">
-        
-<h2>Learning dynamics and validation</h2>
-<p>
-I am interested in learning dynamics from data for control and autonomy while keeping validation, robustness, and interpretability at the center.
-This includes Koopman/Perron-Frobenius ideas, rollout analysis, and policy failure-mode evaluation.
-</p>
-<h3>Current interests</h3>
-<ul>
-  <li>Data-driven dynamics models for control-oriented prediction and verification.</li>
-  <li>VLA and large behavior model evaluation through rollout analysis and failure modes.</li>
-  <li>Sparse and optimization-based interpretability for learned policies.</li>
-  <li>Validation/verification workflows for uncertain autonomy.</li>
-</ul>
-<h3>Connection to control</h3>
-<p>
-Learning is useful when it improves control decisions under uncertainty. I am especially interested in learned models that can be tested,
-stress-tested, interpreted, and connected back to stochastic control principles.
-</p>
+<main class="">
 
-      </article>
-      <aside class="sidebar">
-        <div class="panel"><strong>Related pages</strong><p><a href="research.html">Research overview</a></p><p><a href="publications.html">Publications</a></p><p><a href="cv.html">CV</a></p></div>
-      </aside>
+  <section class="page-head">
+    <div>
+      <p class="kicker">Research topic</p>
+      <h1 class="page-title">Learning Dynamics and Validation</h1>
+      <p class="lead">I am interested in learning dynamics from data while preserving the control, robustness, and verification questions that matter in autonomy.</p>
     </div>
+    <aside class="page-note">Keywords: Koopman, Perron–Frobenius, VLA/LBM evaluation, data-driven dynamics, policy failure modes, sim-to-real validation.</aside>
   </section>
+
+  <section class="grid-3">
+    <div class="card"><h3>Operators</h3><p>Koopman and Perron–Frobenius viewpoints for learning and propagating dynamics, distributions, and features.</p></div>
+    <div class="card"><h3>Behavior models</h3><p>Evaluation of large behavior models and VLA policies through rollout analysis, capability diagnostics, and failure-mode identification.</p></div>
+    <div class="card"><h3>Verification</h3><p>Robust validation, log replay, test infrastructure, and uncertainty-aware stress testing for learned autonomy.</p></div>
+  </section>
+
+  <section class="section">
+    <h2>Research angle</h2>
+    <p class="lead">The goal is not only to learn a predictive model, but to understand which learned representations are useful for control, robustness, and safety.</p>
+  </section>
+
 </main>
 
 <footer class="footer">
@@ -70,6 +55,6 @@ stress-tested, interpreted, and connected back to stochastic control principles.
   <div>Nothing is dense, everything is sparse, and uncertain.</div>
   <div><a href="mailto:aselim8@gatech.edu">aselim8@gatech.edu</a></div>
 </footer>
-<script src="theme.js"></script>
+<script src="theme.js?v=true-multipage-1"></script>
 </body>
 </html>
