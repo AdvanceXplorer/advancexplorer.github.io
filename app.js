@@ -22,6 +22,59 @@ function randn() {
   return Math.sqrt(-2 * Math.log(u)) * Math.cos(TAU * v);
 }
 
+
+
+function getThemePalette() {
+  const light = document.documentElement.dataset.theme === "light";
+  return {
+    grid: light ? "rgba(15,23,42,0.09)" : getThemePalette().grid,
+    gridSoft: light ? "rgba(15,23,42,0.055)" : getThemePalette().gridSoft,
+    label: light ? "rgba(15,23,42,0.72)" : getThemePalette().label,
+    labelSoft: light ? "rgba(15,23,42,0.58)" : getThemePalette().labelSoft,
+    cyan: light ? "rgba(14,165,233,0.78)" : getThemePalette().cyan,
+    cyanSoft: light ? "rgba(14,165,233,0.44)" : getThemePalette().cyanSoft,
+    cyanStrong: light ? "rgba(2,132,199,0.95)" : getThemePalette().cyanStrong,
+    cyanParticle: light ? "rgba(14,165,233,0.62)" : getThemePalette().cyanParticle,
+    cyanTrace: light ? "rgba(14,165,233,0.24)" : getThemePalette().cyanTrace,
+    amber: light ? "rgba(245,158,11,0.82)" : getThemePalette().amber,
+    amberStroke: light ? "rgba(245,158,11,0.72)" : getThemePalette().amberStroke,
+    amberFill: light ? "rgba(245,158,11,0.10)" : getThemePalette().amberFill,
+    amberGlow: light ? "rgba(245,158,11,0.35)" : getThemePalette().amberGlow,
+    green: light ? "rgba(16,185,129,0.95)" : getThemePalette().green,
+    greenStroke: light ? "rgba(16,185,129,0.72)" : getThemePalette().greenStroke,
+    greenGate: light ? "rgba(16,185,129,0.65)" : getThemePalette().greenGate,
+    greenFill: light ? "rgba(16,185,129,0.10)" : getThemePalette().greenFill,
+    greenGateFill: light ? "rgba(16,185,129,0.14)" : getThemePalette().greenGateFill,
+    pinkPath: light ? "rgba(219,39,119,0.52)" : getThemePalette().pinkPath,
+    densityFade: light ? "rgba(248,250,252,0.30)" : getThemePalette().densityFade,
+    heroLine: light ? "rgba(14,165,233," : "rgba(115,221,255,",
+    heroAmber: light ? "rgba(245,158,11," : "rgba(255,209,102,"
+  };
+}
+
+function initThemeToggle() {
+  const root = document.documentElement;
+  const button = document.getElementById("themeToggle");
+  if (!button) return;
+
+  function updateButton() {
+    const isLight = root.dataset.theme === "light";
+    button.querySelector(".theme-toggle-icon").textContent = isLight ? "☾" : "☀";
+    button.querySelector(".theme-toggle-text").textContent = isLight ? "Dark" : "Light";
+    button.setAttribute("aria-label", isLight ? "Switch to dark theme" : "Switch to light theme");
+  }
+
+  button.addEventListener("click", () => {
+    const nextTheme = root.dataset.theme === "light" ? "dark" : "light";
+    root.dataset.theme = nextTheme;
+    localStorage.setItem("akan-theme", nextTheme);
+    updateButton();
+    window.dispatchEvent(new Event("resize"));
+  });
+
+  updateButton();
+}
+
 function revealOnScroll() {
   const observer = new IntersectionObserver(entries => {
     for (const entry of entries) {
@@ -52,7 +105,8 @@ function heroBackground() {
       const y = p.y * h + Math.sin(p.a * 0.73 + t * 0.00017) * 25;
       ctx.beginPath();
       ctx.arc(x, y, p.r, 0, TAU);
-      ctx.fillStyle = `${p.hue}${0.10 + 0.18 * Math.sin(p.a)})`;
+      const c = getThemePalette();
+      ctx.fillStyle = `${p.hue.includes("255,209") ? c.heroAmber : c.heroLine}${0.10 + 0.18 * Math.sin(p.a)})`;
       ctx.fill();
     }
 
@@ -66,7 +120,7 @@ function heroBackground() {
         const yj = pj.y * h + Math.sin(pj.a * 0.73 + t * 0.00017) * 25;
         const d = Math.hypot(xi - xj, yi - yj);
         if (d < 135) {
-          ctx.strokeStyle = `rgba(115,221,255,${0.035 * (1 - d / 135)})`;
+          ctx.strokeStyle = `${getThemePalette().heroLine}${0.035 * (1 - d / 135)})`;
           ctx.beginPath();
           ctx.moveTo(xi, yi);
           ctx.lineTo(xj, yj);
@@ -95,7 +149,7 @@ function phasePortrait() {
     ctx.clearRect(0, 0, w, h);
     const cx = w / 2, cy = h / 2;
 
-    ctx.strokeStyle = "rgba(255,255,255,0.055)";
+    ctx.strokeStyle = getThemePalette().gridSoft;
     ctx.lineWidth = 1;
     for (let x = 0; x < w; x += 34) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke(); }
     for (let y = 0; y < h; y += 34) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke(); }
@@ -110,13 +164,13 @@ function phasePortrait() {
         const y = cy + Math.sin(q * 1.18) * rad * 0.78;
         if (k === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
       }
-      ctx.strokeStyle = "rgba(115,221,255,0.14)";
+      ctx.strokeStyle = getThemePalette().cyanTrace;
       ctx.stroke();
       const px = cx + Math.cos(tr.a) * tr.r * 1.35;
       const py = cy + Math.sin(tr.a * 1.18) * tr.r * 0.78;
       ctx.beginPath();
       ctx.arc(px, py, 2.5, 0, TAU);
-      ctx.fillStyle = "rgba(255,209,102,0.8)";
+      ctx.fillStyle = getThemePalette().amber;
       ctx.fill();
     }
     requestAnimationFrame(draw);
@@ -174,8 +228,8 @@ function covarianceDemo() {
     const spread = Number(target.value);
     const tx = w * 0.75, ty = h * 0.48;
 
-    drawEllipse(ctx, w * 0.22, h * 0.54, 62, 100, -0.18, "rgba(255,209,102,0.65)", "rgba(255,209,102,0.055)");
-    drawEllipse(ctx, tx, ty, spread * 1.45, spread * 0.72, 0.32, "rgba(148,247,197,0.72)", "rgba(148,247,197,0.05)");
+    drawEllipse(ctx, w * 0.22, h * 0.54, 62, 100, -0.18, getThemePalette().amberStroke, getThemePalette().amberFill);
+    drawEllipse(ctx, tx, ty, spread * 1.45, spread * 0.72, 0.32, getThemePalette().greenStroke, getThemePalette().greenFill);
 
     for (const p of particles) {
       const dx = tx - p.x;
@@ -196,11 +250,11 @@ function covarianceDemo() {
       }
       ctx.beginPath();
       ctx.arc(p.x, p.y, 2.1, 0, TAU);
-      ctx.fillStyle = "rgba(115,221,255,0.78)";
+      ctx.fillStyle = getThemePalette().cyan;
       ctx.fill();
     }
 
-    ctx.fillStyle = "rgba(255,255,255,0.65)";
+    ctx.fillStyle = getThemePalette().label;
     ctx.font = "12px JetBrains Mono, monospace";
     ctx.fillText("initial law", w * 0.08, h * 0.16);
     ctx.fillText("target law", w * 0.66, h * 0.18);
@@ -219,7 +273,7 @@ function densityDemo() {
 
   function draw() {
     const { width: w, height: h } = size();
-    ctx.fillStyle = "rgba(2,5,11,0.28)";
+    ctx.fillStyle = getThemePalette().densityFade;
     ctx.fillRect(0, 0, w, h);
     const pot = Number(potential.value);
     const sig = Number(noise.value);
@@ -232,7 +286,7 @@ function densityDemo() {
         const fx = -pot * x + rot * -y + 0.25 * Math.sin(3 * y);
         const fy = -pot * y + rot * x + 0.25 * Math.cos(3 * x);
         const mag = Math.hypot(fx, fy) + 1e-6;
-        ctx.strokeStyle = "rgba(255,255,255,0.12)";
+        ctx.strokeStyle = getThemePalette().grid;
         ctx.beginPath();
         ctx.moveTo(gx, gy);
         ctx.lineTo(gx + 13 * fx / mag, gy + 13 * fy / mag);
@@ -255,7 +309,7 @@ function densityDemo() {
       p.y = clamp(p.y, 0, 1);
       ctx.beginPath();
       ctx.arc(p.x * w, p.y * h, 1.7, 0, TAU);
-      ctx.fillStyle = "rgba(115,221,255,0.44)";
+      ctx.fillStyle = getThemePalette().cyanSoft;
       ctx.fill();
     }
     requestAnimationFrame(draw);
@@ -284,14 +338,14 @@ function orbitDemo() {
 
     ctx.beginPath();
     ctx.ellipse(cx, cy, rx, ry, -0.15, 0, TAU);
-    ctx.strokeStyle = "rgba(255,255,255,0.20)";
+    ctx.strokeStyle = getThemePalette().grid;
     ctx.lineWidth = 1.6;
     ctx.stroke();
 
     ctx.beginPath();
     ctx.arc(cx, cy, 10, 0, TAU);
-    ctx.fillStyle = "rgba(255,209,102,0.85)";
-    ctx.shadowColor = "rgba(255,209,102,0.55)";
+    ctx.fillStyle = getThemePalette().amber;
+    ctx.shadowColor = getThemePalette().amberGlow;
     ctx.shadowBlur = 20;
     ctx.fill();
     ctx.shadowBlur = 0;
@@ -306,16 +360,16 @@ function orbitDemo() {
       const y = cy + Math.sin(a + p.da) * localRy;
       ctx.beginPath();
       ctx.arc(x, y, 1.8, 0, TAU);
-      ctx.fillStyle = "rgba(115,221,255,0.62)";
+      ctx.fillStyle = getThemePalette().cyanParticle;
       ctx.fill();
     }
 
     const na = t;
     ctx.beginPath();
     ctx.arc(cx + Math.cos(na) * rx, cy + Math.sin(na) * ry, 4, 0, TAU);
-    ctx.fillStyle = "rgba(148,247,197,0.95)";
+    ctx.fillStyle = getThemePalette().green;
     ctx.fill();
-    ctx.fillStyle = "rgba(255,255,255,0.64)";
+    ctx.fillStyle = getThemePalette().labelSoft;
     ctx.font = "12px JetBrains Mono, monospace";
     ctx.fillText("uncertainty cloud", 22, 26);
     requestAnimationFrame(draw);
@@ -361,33 +415,33 @@ function correctionDemo() {
     const E = Number(err.value);
     const G = Number(gain.value);
 
-    ctx.strokeStyle = "rgba(255,255,255,0.08)";
+    ctx.strokeStyle = getThemePalette().grid;
     ctx.lineWidth = 1;
     for (let y = 0; y < h; y += 34) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke(); }
 
     const gateX = w * 0.92, gateY = h * 0.29;
-    ctx.strokeStyle = "rgba(148,247,197,0.65)";
+    ctx.strokeStyle = getThemePalette().greenGate;
     ctx.lineWidth = 2;
     ctx.strokeRect(gateX - 10, gateY - 48, 20, 96);
-    ctx.fillStyle = "rgba(148,247,197,0.12)";
+    ctx.fillStyle = getThemePalette().greenGateFill;
     ctx.fillRect(gateX - 10, gateY - 48, 20, 96);
 
-    drawPath(ctx, w, h, E, false, "rgba(255,124,168,0.45)", 3);
-    drawPath(ctx, w, h, E / (1 + G * 1.6), true, "rgba(115,221,255,0.95)", 4);
+    drawPath(ctx, w, h, E, false, getThemePalette().pinkPath, 3);
+    drawPath(ctx, w, h, E / (1 + G * 1.6), true, getThemePalette().cyanStrong, 4);
 
     for (let i = 0; i < 18; i++) {
       const s = i / 17;
       const p = pathPoint(s, E / (1 + G * 1.6), true);
       ctx.beginPath();
       ctx.arc(p.x * w, p.y * h, 3, 0, TAU);
-      ctx.fillStyle = i === 17 ? "rgba(148,247,197,0.95)" : "rgba(115,221,255,0.62)";
+      ctx.fillStyle = i === 17 ? getThemePalette().green : getThemePalette().cyanParticle;
       ctx.fill();
     }
 
-    ctx.fillStyle = "rgba(255,255,255,0.65)";
+    ctx.fillStyle = getThemePalette().label;
     ctx.font = "12px JetBrains Mono, monospace";
     ctx.fillText("uncorrected", 24, 26);
-    ctx.fillStyle = "rgba(115,221,255,0.78)";
+    ctx.fillStyle = getThemePalette().cyan;
     ctx.fillText("corrected", 24, 48);
     requestAnimationFrame(draw);
   }
@@ -415,6 +469,7 @@ function tabs() {
 
 window.addEventListener("load", () => {
   document.getElementById("year").textContent = new Date().getFullYear();
+  initThemeToggle();
   revealOnScroll();
   heroBackground();
   phasePortrait();

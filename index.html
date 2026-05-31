@@ -18,6 +18,15 @@
     rel="stylesheet"
   >
 
+
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("akan-theme");
+      const prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
+      document.documentElement.dataset.theme = savedTheme || (prefersLight ? "light" : "dark");
+    })();
+  </script>
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -31,13 +40,20 @@
       <span class="brand-text">Akan Selim</span>
     </a>
 
-    <nav class="nav" aria-label="Primary navigation">
-      <a href="#research">Research</a>
-      <a href="#lab">Interactive Lab</a>
-      <a href="#publications">Publications</a>
-      <a href="#experience">Experience</a>
-      <a href="#cv">CV</a>
-    </nav>
+    <div class="header-actions">
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#research">Research</a>
+        <a href="#lab">Interactive Lab</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Experience</a>
+        <a href="#cv">CV</a>
+      </nav>
+
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme">
+        <span class="theme-toggle-icon" aria-hidden="true">☀</span>
+        <span class="theme-toggle-text">Light</span>
+      </button>
+    </div>
   </header>
 
   <main id="top">
