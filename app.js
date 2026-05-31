@@ -26,29 +26,56 @@ function randn() {
 
 function getThemePalette() {
   const light = document.documentElement.dataset.theme === "light";
+  if (light) {
+    return {
+      grid: "rgba(15,23,42,0.09)",
+      gridSoft: "rgba(15,23,42,0.055)",
+      label: "rgba(15,23,42,0.72)",
+      labelSoft: "rgba(15,23,42,0.58)",
+      cyan: "rgba(14,165,233,0.78)",
+      cyanSoft: "rgba(14,165,233,0.44)",
+      cyanStrong: "rgba(2,132,199,0.95)",
+      cyanParticle: "rgba(14,165,233,0.62)",
+      cyanTrace: "rgba(14,165,233,0.24)",
+      amber: "rgba(245,158,11,0.82)",
+      amberStroke: "rgba(245,158,11,0.72)",
+      amberFill: "rgba(245,158,11,0.10)",
+      amberGlow: "rgba(245,158,11,0.35)",
+      green: "rgba(16,185,129,0.95)",
+      greenStroke: "rgba(16,185,129,0.72)",
+      greenGate: "rgba(16,185,129,0.65)",
+      greenFill: "rgba(16,185,129,0.10)",
+      greenGateFill: "rgba(16,185,129,0.14)",
+      pinkPath: "rgba(219,39,119,0.52)",
+      densityFade: "rgba(248,250,252,0.30)",
+      heroLine: "rgba(14,165,233,",
+      heroAmber: "rgba(245,158,11,"
+    };
+  }
+
   return {
-    grid: light ? "rgba(15,23,42,0.09)" : getThemePalette().grid,
-    gridSoft: light ? "rgba(15,23,42,0.055)" : getThemePalette().gridSoft,
-    label: light ? "rgba(15,23,42,0.72)" : getThemePalette().label,
-    labelSoft: light ? "rgba(15,23,42,0.58)" : getThemePalette().labelSoft,
-    cyan: light ? "rgba(14,165,233,0.78)" : getThemePalette().cyan,
-    cyanSoft: light ? "rgba(14,165,233,0.44)" : getThemePalette().cyanSoft,
-    cyanStrong: light ? "rgba(2,132,199,0.95)" : getThemePalette().cyanStrong,
-    cyanParticle: light ? "rgba(14,165,233,0.62)" : getThemePalette().cyanParticle,
-    cyanTrace: light ? "rgba(14,165,233,0.24)" : getThemePalette().cyanTrace,
-    amber: light ? "rgba(245,158,11,0.82)" : getThemePalette().amber,
-    amberStroke: light ? "rgba(245,158,11,0.72)" : getThemePalette().amberStroke,
-    amberFill: light ? "rgba(245,158,11,0.10)" : getThemePalette().amberFill,
-    amberGlow: light ? "rgba(245,158,11,0.35)" : getThemePalette().amberGlow,
-    green: light ? "rgba(16,185,129,0.95)" : getThemePalette().green,
-    greenStroke: light ? "rgba(16,185,129,0.72)" : getThemePalette().greenStroke,
-    greenGate: light ? "rgba(16,185,129,0.65)" : getThemePalette().greenGate,
-    greenFill: light ? "rgba(16,185,129,0.10)" : getThemePalette().greenFill,
-    greenGateFill: light ? "rgba(16,185,129,0.14)" : getThemePalette().greenGateFill,
-    pinkPath: light ? "rgba(219,39,119,0.52)" : getThemePalette().pinkPath,
-    densityFade: light ? "rgba(248,250,252,0.30)" : getThemePalette().densityFade,
-    heroLine: light ? "rgba(14,165,233," : "rgba(115,221,255,",
-    heroAmber: light ? "rgba(245,158,11," : "rgba(255,209,102,"
+    grid: "rgba(255,255,255,0.10)",
+    gridSoft: "rgba(255,255,255,0.055)",
+    label: "rgba(238,245,255,0.74)",
+    labelSoft: "rgba(159,176,199,0.74)",
+    cyan: "rgba(103,232,249,0.82)",
+    cyanSoft: "rgba(103,232,249,0.42)",
+    cyanStrong: "rgba(103,232,249,0.94)",
+    cyanParticle: "rgba(103,232,249,0.68)",
+    cyanTrace: "rgba(103,232,249,0.22)",
+    amber: "rgba(251,191,36,0.88)",
+    amberStroke: "rgba(251,191,36,0.78)",
+    amberFill: "rgba(251,191,36,0.11)",
+    amberGlow: "rgba(251,191,36,0.38)",
+    green: "rgba(52,211,153,0.95)",
+    greenStroke: "rgba(52,211,153,0.72)",
+    greenGate: "rgba(52,211,153,0.68)",
+    greenFill: "rgba(52,211,153,0.10)",
+    greenGateFill: "rgba(52,211,153,0.14)",
+    pinkPath: "rgba(244,114,182,0.58)",
+    densityFade: "rgba(2,6,23,0.30)",
+    heroLine: "rgba(115,221,255,",
+    heroAmber: "rgba(255,209,102,"
   };
 }
 
