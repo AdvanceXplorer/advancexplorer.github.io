@@ -1061,3 +1061,68 @@ html[data-theme="light"] .site-footer {
     width: 100%;
   }
 }
+
+/* ==========================================================
+   Fixed visible theme switch
+   ========================================================== */
+.floating-theme-toggle {
+  position: fixed;
+  top: 22px;
+  right: 24px;
+  z-index: 1000;
+  min-height: 46px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  color: var(--text);
+  background: rgba(5, 7, 10, 0.82);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+}
+
+.floating-theme-toggle:hover {
+  transform: translateY(-2px);
+  color: var(--text);
+  border-color: rgba(103, 232, 249, 0.65);
+  box-shadow: 0 18px 55px rgba(103, 232, 249, 0.18);
+}
+
+.floating-theme-toggle .theme-toggle-icon {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--cyan), var(--blue));
+  color: #031019;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.floating-theme-toggle .theme-toggle-text {
+  color: inherit;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+html[data-theme="light"] .floating-theme-toggle {
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(15, 23, 42, 0.16);
+  box-shadow: 0 18px 55px rgba(15, 23, 42, 0.12);
+}
+
+@media (max-width: 820px) {
+  .floating-theme-toggle {
+    top: auto;
+    right: 16px;
+    bottom: 16px;
+    min-height: 44px;
+    padding: 0 14px;
+  }
+}
