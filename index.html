@@ -3,66 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Akan Selim — stochastic optimal control, distribution steering, astrodynamics, sparse nonlinear programming, and uncertainty-aware autonomy." />
   <title>Akan Selim</title>
-  <link rel="stylesheet" href="styles.css?v=true-multipage-1" />
+  <meta name="description" content="Akan Selim — stochastic optimal control, distribution steering, astrodynamics, learning dynamics, and sparse uncertainty-aware autonomy." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<header class="site-header">
-  <div class="brand-row">
-    <a class="brand" href="index.html">Akan Selim</a>
-    <button class="theme-button" id="themeToggle" type="button" aria-label="Toggle color theme">Dark</button>
-  </div>
-  <nav class="nav" aria-label="Primary navigation">
-    <a class="active" href="index.html">Home</a>
-<a class="" href="research.html">Research</a>
-<a class="" href="distribution-steering.html">Distribution</a>
-<a class="" href="stochastic-control.html">Control</a>
-<a class="" href="astrodynamics.html">Astrodynamics</a>
-<a class="" href="learning-dynamics.html">Learning</a>
-<a class="" href="publications.html">Publications</a>
-<a class="" href="experience.html">Experience</a>
-<a class="" href="cv.html">CV</a>
-  </nav>
-</header>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-wrap">
+        <a class="brand" href="index.html">Akan Selim</a>
+        <button class="theme-toggle" type="button" data-theme-toggle>Dark</button>
+      </div>
+      <nav class="nav" aria-label="Main navigation">
+        <a class="active" href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="experience.html">Experience</a>
+        <a href="cv.html">CV</a>
+      </nav>
+    </div>
+  </header>
 
-<main class="home-main">
-
-  <section class="home-hero">
-    <div>
-      <p class="kicker">Stochastic control · Sparse optimization · Uncertainty-aware autonomy</p>
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Stochastic control · Sparse optimization · Aerospace autonomy</p>
       <h1>Nothing is dense, everything is sparse, and uncertain.</h1>
-      <p class="lead">
+      <p class="lede">
         I am a PhD researcher in Aerospace Engineering at Georgia Tech working on stochastic optimal control,
-        distribution steering, astrodynamics, sparse nonlinear programming, and data-driven autonomy.
+        distribution steering, uncertainty propagation, astrodynamics, sparse nonlinear programming, and data-driven autonomy.
       </p>
       <div class="actions">
-        <a class="button primary" href="research.html">Enter research pages</a>
+        <a class="button primary" href="research.html">Research areas</a>
         <a class="button" href="publications.html">Publications</a>
         <a class="button" href="assets/Akan_Selim_CV.pdf" target="_blank" rel="noopener">Download CV</a>
       </div>
-    </div>
+    </section>
 
-    <aside class="directory" aria-label="Site directory">
-      <p class="directory-title">Site directory</p>
-      <a href="research.html">Research overview <span>→</span></a>
-      <a href="distribution-steering.html">Distribution steering <span>→</span></a>
-      <a href="stochastic-control.html">Stochastic control <span>→</span></a>
-      <a href="astrodynamics.html">Astrodynamics <span>→</span></a>
-      <a href="learning-dynamics.html">Learning dynamics <span>→</span></a>
-      <a href="publications.html">Publications <span>→</span></a>
-      <a href="experience.html">Experience <span>→</span></a>
-      <a href="cv.html">CV <span>→</span></a>
-    </aside>
-  </section>
+    <section class="section">
+      <p class="eyebrow">Site directory</p>
+      <h2>Separate pages, not one long page.</h2>
+      <div class="grid">
+        <a class="card" href="distribution-steering.html">
+          <p class="meta">Research topic</p>
+          <h3>Distribution Steering</h3>
+          <p>Probability distributions, covariance steering, Fokker–Planck viewpoints, and measure-valued control.</p>
+        </a>
+        <a class="card" href="stochastic-control.html">
+          <p class="meta">Research topic</p>
+          <h3>Stochastic Control</h3>
+          <p>Stochastic optimal control, optimal stopping, MPPI/path-integral methods, and robust policy design.</p>
+        </a>
+        <a class="card" href="astrodynamics.html">
+          <p class="meta">Research topic</p>
+          <h3>Astrodynamics</h3>
+          <p>Trajectory optimization, orbital uncertainty propagation, launch/re-entry systems, and spacecraft autonomy.</p>
+        </a>
+        <a class="card" href="learning-dynamics.html">
+          <p class="meta">Research topic</p>
+          <h3>Learning Dynamics</h3>
+          <p>Data-driven dynamics, Koopman/Perron–Frobenius models, VLA/LBM evaluation, and sparse interpretability.</p>
+        </a>
+        <a class="card" href="publications.html">
+          <p class="meta">Output</p>
+          <h3>Publications</h3>
+          <p>Selected manuscripts, papers, and software-oriented optimal-control work.</p>
+        </a>
+        <a class="card" href="experience.html">
+          <p class="meta">Background</p>
+          <h3>Experience</h3>
+          <p>Georgia Tech, FieldAI, and ROKETSAN GN&amp;C engineering experience.</p>
+        </a>
+      </div>
+    </section>
+  </main>
 
-</main>
-
-<footer class="footer">
-  <div>© 2026 Akan Selim</div>
-  <div>Nothing is dense, everything is sparse, and uncertain.</div>
-  <div><a href="mailto:aselim8@gatech.edu">aselim8@gatech.edu</a></div>
-</footer>
-<script src="theme.js?v=true-multipage-1"></script>
+  <footer class="site-footer">
+    <span>© Akan Selim</span>
+    <a href="mailto:aselim8@gatech.edu">aselim8@gatech.edu</a>
+  </footer>
+  <script src="theme.js"></script>
 </body>
 </html>

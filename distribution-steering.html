@@ -3,68 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Akan Selim — stochastic optimal control, distribution steering, astrodynamics, sparse nonlinear programming, and uncertainty-aware autonomy." />
   <title>Distribution Steering | Akan Selim</title>
-  <link rel="stylesheet" href="styles.css?v=true-multipage-1" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<header class="site-header">
-  <div class="brand-row">
-    <a class="brand" href="index.html">Akan Selim</a>
-    <button class="theme-button" id="themeToggle" type="button" aria-label="Toggle color theme">Dark</button>
-  </div>
-  <nav class="nav" aria-label="Primary navigation">
-    <a class="" href="index.html">Home</a>
-<a class="" href="research.html">Research</a>
-<a class="active" href="distribution-steering.html">Distribution</a>
-<a class="" href="stochastic-control.html">Control</a>
-<a class="" href="astrodynamics.html">Astrodynamics</a>
-<a class="" href="learning-dynamics.html">Learning</a>
-<a class="" href="publications.html">Publications</a>
-<a class="" href="experience.html">Experience</a>
-<a class="" href="cv.html">CV</a>
-  </nav>
-</header>
-
-<main class="">
-
-  <section class="page-head">
-    <div>
-      <p class="kicker">Research topic</p>
-      <h1 class="page-title">Distribution Steering</h1>
-      <p class="lead">Control is not only about moving trajectories. In many aerospace and autonomy problems, the object being controlled is an entire probability law.</p>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-wrap">
+        <a class="brand" href="index.html">Akan Selim</a>
+        <button class="theme-toggle" type="button" data-theme-toggle>Dark</button>
+      </div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a class="active" href="research.html">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="experience.html">Experience</a>
+        <a href="cv.html">CV</a>
+      </nav>
     </div>
-    <aside class="page-note">Keywords: covariance steering, Fokker–Planck equations, optimal transport, free-final-time steering, measure-valued dynamics.</aside>
-  </section>
+  </header>
 
-  <section class="grid-3">
-    <div class="card"><h3>Problem</h3><p>Design controls that transform an initial uncertainty distribution into a desired terminal distribution under stochastic dynamics.</p></div>
-    <div class="card"><h3>Methods</h3><p>Covariance steering, nonlinear optimal transport, Fokker–Planck transformations, stochastic maximum principle, and numerical optimal control.</p></div>
-    <div class="card"><h3>Applications</h3><p>Spacecraft guidance, robust trajectory design, robot autonomy, uncertainty-aware planning, and safety-critical decision making.</p></div>
-  </section>
+  <main>
+    <section class="page-header">
+      <p class="eyebrow">Research topic</p>
+      <h1>Distribution Steering</h1>
+      <p class="page-text">
+        This topic studies how to control probability distributions under stochastic dynamics, with emphasis on covariance steering,
+        Fokker–Planck formulations, free-final-time conditions, and nonlinear measure-valued dynamics.
+      </p>
+    </section>
 
-  <section class="section">
-    <h2>Current directions</h2>
-    <ul class="list">
-      <li>Continuous-time covariance steering with common free-final time.</li>
-      <li>Nonlinear distribution steering through Fokker–Planck and optimal transport formulations.</li>
-      <li>Free-final-time transversality conditions for distribution-level control.</li>
-      <li>Numerical methods for steering non-Gaussian distributions under nonlinear dynamics.</li>
-    </ul>
-  </section>
+    <section class="section split">
+      <div class="callout">
+        <p class="meta">Central question</p>
+        <h3>How do we move uncertainty itself?</h3>
+        <p>
+          Instead of designing a single nominal trajectory, distribution steering asks for controls that shape the evolution
+          of a full density, covariance, or non-Gaussian ensemble.
+        </p>
+      </div>
+      <div class="list">
+        <article>
+          <h3>Current interests</h3>
+          <p>Continuous-time covariance steering, common free-final time, stochastic maximum principle conditions, and turnpike behavior.</p>
+        </article>
+        <article>
+          <h3>Nonlinear density control</h3>
+          <p>Fokker–Planck transformations, optimal transport ideas, score/diffusion viewpoints, and computational approximations.</p>
+        </article>
+        <article>
+          <h3>Applications</h3>
+          <p>Spacecraft uncertainty propagation, autonomous guidance, re-entry dispersion management, and robust planning under uncertainty.</p>
+        </article>
+      </div>
+    </section>
+  </main>
 
-  <section class="section card">
-    <h3>Future page extension</h3>
-    <p>This page can later contain one dedicated interactive demo: sliders for initial covariance, terminal covariance, diffusion, control penalty, and time horizon.</p>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div>© 2026 Akan Selim</div>
-  <div>Nothing is dense, everything is sparse, and uncertain.</div>
-  <div><a href="mailto:aselim8@gatech.edu">aselim8@gatech.edu</a></div>
-</footer>
-<script src="theme.js?v=true-multipage-1"></script>
+  <footer class="site-footer">
+    <span>© Akan Selim</span>
+    <a href="mailto:aselim8@gatech.edu">aselim8@gatech.edu</a>
+  </footer>
+  <script src="theme.js"></script>
 </body>
 </html>

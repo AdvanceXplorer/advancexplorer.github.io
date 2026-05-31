@@ -3,63 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Akan Selim — stochastic optimal control, distribution steering, astrodynamics, sparse nonlinear programming, and uncertainty-aware autonomy." />
   <title>Astrodynamics | Akan Selim</title>
-  <link rel="stylesheet" href="styles.css?v=true-multipage-1" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<header class="site-header">
-  <div class="brand-row">
-    <a class="brand" href="index.html">Akan Selim</a>
-    <button class="theme-button" id="themeToggle" type="button" aria-label="Toggle color theme">Dark</button>
-  </div>
-  <nav class="nav" aria-label="Primary navigation">
-    <a class="" href="index.html">Home</a>
-<a class="" href="research.html">Research</a>
-<a class="" href="distribution-steering.html">Distribution</a>
-<a class="" href="stochastic-control.html">Control</a>
-<a class="active" href="astrodynamics.html">Astrodynamics</a>
-<a class="" href="learning-dynamics.html">Learning</a>
-<a class="" href="publications.html">Publications</a>
-<a class="" href="experience.html">Experience</a>
-<a class="" href="cv.html">CV</a>
-  </nav>
-</header>
-
-<main class="">
-
-  <section class="page-head">
-    <div>
-      <p class="kicker">Research topic</p>
-      <h1 class="page-title">Astrodynamics and GN&amp;C</h1>
-      <p class="lead">My applied background is in launch vehicles, re-entry, rendezvous, spacecraft mission design, and robust guidance/control.</p>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-wrap">
+        <a class="brand" href="index.html">Akan Selim</a>
+        <button class="theme-toggle" type="button" data-theme-toggle>Dark</button>
+      </div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a class="active" href="research.html">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="experience.html">Experience</a>
+        <a href="cv.html">CV</a>
+      </nav>
     </div>
-    <aside class="page-note">Keywords: trajectory optimization, orbital insertion, rendezvous, re-entry, ensemble pseudospectral control, Monte Carlo validation.</aside>
-  </section>
+  </header>
 
-  <section class="grid-3">
-    <div class="card"><h3>Trajectory optimization</h3><p>Robust and sparse nonlinear programming methods for launch, re-entry, rendezvous, and multi-phase trajectory design.</p></div>
-    <div class="card"><h3>Guidance and control</h3><p>Real-time guidance, robust autopilots, control allocation, structured H∞ ideas, contraction metrics, and recursive replanning.</p></div>
-    <div class="card"><h3>Uncertainty</h3><p>Monte Carlo validation, polynomial chaos, unscented methods, Gaussian mixtures, and uncertainty propagation for aerospace systems.</p></div>
-  </section>
+  <main>
+    <section class="page-header">
+      <p class="eyebrow">Research topic</p>
+      <h1>Astrodynamics and Aerospace Autonomy</h1>
+      <p class="page-text">
+        My aerospace work connects launch-vehicle GN&amp;C, re-entry trajectory optimization, orbital rendezvous, spacecraft autonomy,
+        and uncertainty-aware mission design.
+      </p>
+    </section>
 
-  <section class="section">
-    <h2>Applied systems</h2>
-    <ul class="list">
-      <li>Launch vehicle configuration, mission, and trajectory design.</li>
-      <li>Re-entry trajectory optimization with endpoint-region constraints.</li>
-      <li>Close-proximity rendezvous and space servicing vehicle guidance.</li>
-      <li>Formation reconfiguration and uncertainty-aware orbital control.</li>
-    </ul>
-  </section>
+    <section class="section split">
+      <div class="callout">
+        <p class="meta">Application domain</p>
+        <h3>Safety-critical motion under uncertainty.</h3>
+        <p>
+          Aerospace systems are an ideal testbed for stochastic control because uncertainty, constraints, and verification requirements
+          are unavoidable.
+        </p>
+      </div>
+      <div class="list">
+        <article>
+          <h3>Trajectory optimization</h3>
+          <p>Pseudospectral transcription, sparse nonlinear programming, endpoint regions, and robust optimization under dispersions.</p>
+        </article>
+        <article>
+          <h3>Launch and re-entry</h3>
+          <p>Launch-vehicle guidance, robust re-entry optimization, aerodynamic uncertainty, and Monte Carlo validation.</p>
+        </article>
+        <article>
+          <h3>Spacecraft autonomy</h3>
+          <p>Rendezvous, docking, formation reconfiguration, orbital insertion, Lambert solvers, and onboard correction logic.</p>
+        </article>
+      </div>
+    </section>
+  </main>
 
-</main>
-
-<footer class="footer">
-  <div>© 2026 Akan Selim</div>
-  <div>Nothing is dense, everything is sparse, and uncertain.</div>
-  <div><a href="mailto:aselim8@gatech.edu">aselim8@gatech.edu</a></div>
-</footer>
-<script src="theme.js?v=true-multipage-1"></script>
+  <footer class="site-footer">
+    <span>© Akan Selim</span>
+    <a href="mailto:aselim8@gatech.edu">aselim8@gatech.edu</a>
+  </footer>
+  <script src="theme.js"></script>
 </body>
 </html>
